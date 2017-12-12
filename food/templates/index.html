@@ -1,5 +1,22 @@
 {%extends 'all-food/base.html' %}
 {% block content%}
+
 {{block.super}}
   <h1 class="text-center">List of available foods</h1>
+  {%for food_item in food%}
+  <div class="container">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="/">{{ food_item.name }}</a>
+    </div>
+    <div class="panel-body">
+      <img src="{{ food_item.food_pic.url }}" alt="{{ food_item.name }}" width="500px" class="img-responsive">
+    </div>
+    <div class="panel-footer">
+      <h4>{{food_item.name}}</h4>
+    </div>
+    </div>
+  </div>
+
+  {%endfor%}
 {%endblock%}
