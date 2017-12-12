@@ -1,7 +1,12 @@
 h1{
-  color: green;
+  color: #3f2a27;
 }
 body{
   padding-top: 70px;
   background-color: #d9d9d9;
+}
+#register-pic{
+  background-image: url('/static/images/logo2.png');
+  background-size: cover;
+  padding-bottom: 410px;
 }
