@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = ('/')
 
+STAR_RATINGS_RERATE = False
+
 
 # Application definition
 
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'food',
     'bootstrap3',
+    'star_ratings',
 ]
 
 MIDDLEWARE = [

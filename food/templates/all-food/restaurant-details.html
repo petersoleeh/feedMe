@@ -1,23 +1,25 @@
 {%extends 'all-food/base.html' %}
 {% block content%}
+{%load ratings%}
 {{block.super}}
 <div class="container">
-  {%if user.is_authenticated%}
-    {%for restaurant in restaurants%}
-    <div class="panel panel-default">
+{%if user.is_authenticated%}
+  {%for restaurant in restaurants%}
+  <div class="panel panel-default">
     <div class="panel-body">
       <div class="col-md-6">
-      <img src="{{ restaurant.rest_img.url }}" alt="{{ restaurant.name }}" width="500px" class="img-responsive">
-    </div>
-    <div class="col-md-6">
-      <h5>Some stuff</h5>
-    </div>
+        <img src="{{ restaurant.rest_img.url }}" alt="{{ restaurant.name }}" width="500px" class="img-responsive">
+      </div>
+      <div class="col-md-6">
+        <h5>Some stuff</h5>
+        {% ratings restaurant%}
+      </div>
     </div>
     <div class="panel-footer">
       <h4>{{restaurant.name}}</h4>
     </div>
-    </div>
   </div>
+</div>
     <br>
     <div class="container">
       <div class="row">
@@ -28,7 +30,7 @@
         <div class="col-md-4">
           <h5>Contacts</h5>
           <p><strong>Phone Number: {{restaurant.phone_number}}</strong></p>
-          <p><strong>Visit Our Site: {{restaurant.website_url}}</strong></p>
+          <a href="{{restaurant.website_url}}"><p><strong>Our Site</strong></p></a>
 
         </div>
         <div class="col-md-4">
@@ -38,6 +40,9 @@
         </div>
       </div>
     </div>
+    <footer>
+      Copyright &#9426; 2017 {{restaurant.name}}. <small>All Rights Reserved</small>
+    </footer>
     <script>
     function myMap() {
       var myCenter = new google.maps.LatLng(-1.278183,36.769450);
@@ -52,7 +57,7 @@
     }
     </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYhT-2wPJB1I0sCAKU1a2mUm14Z70Z41Y&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYhT-2wPJB1I0sCAKU1a2mUm14Z70Z41Y&callback=myMap"></script>
 
     {%endfor%}
   {%endif%}
