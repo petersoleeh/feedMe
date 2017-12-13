@@ -4,7 +4,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
-    url(r'^$',views.index,name='index')
+    #the landing page
+    url(r'^$',views.index,name='index'),
+
+    #the restaurants page
+    url(r'^food/(?P<food_id>[0-9]+)/$',views.restaurant,name='rest'),
+
+    #the restaurant-details page
+    url(r'^restaurant/(?P<restaurant_id>[0-9]+)/$',views.restaurant_details,name='rest-details')
 ]
 
 if settings.DEBUG:
