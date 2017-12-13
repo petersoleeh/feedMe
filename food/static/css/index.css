@@ -4,9 +4,36 @@ h1{
 body{
   padding-top: 70px;
   background-color: #d9d9d9;
+  font-family: 'Jura', sans-serif;
 }
+.navbar-default{
+  background-color: #2b1d1c !important;
+}
+.navbar-brand {
+  color: #fff !important;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-weight: bolder;
+}
+.key{
+  color: #fff !important;
+  font-family: 'Gloria Hallelujah', cursive;
+
+}
+.header{
+  font-family: 'Gloria Hallelujah', cursive;
+}
+.card-content{
+  margin-top: -30px;
+}
+
+#rest_img{
+  width: 300px;
+}
+
+
 #register-pic{
   background-image: url('/static/images/logo2.png');
   background-size: cover;
   padding-bottom: 410px;
+
 }
