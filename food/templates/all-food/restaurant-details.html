@@ -1,0 +1,11 @@
+{%extends 'all-food/base.html' %}
+{% block content%}
+{{block.super}}
+<div class="container">
+  {%if user.is_authenticated%}
+    {%for restaurant in restaurants%}
+    <img src="{{ restaurant.rest_img.url}}" alt="{{ restaurant.name}}" class="img-responsive">
+    {%endfor%}
+  {%endif%}
+</div>
+{%endblock%}

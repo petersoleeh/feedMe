@@ -1,0 +1,42 @@
+{%extends 'all-food/base.html' %}
+{% block content%}
+{{block.super}}
+{%for restaurant in rest%}
+  <div class="col s12 m7">
+    <!-- <h4 class="header">{{restaurant.name}}</h4> -->
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="{{ restaurant.rest_img.url }}" id="rest_img">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h4>{{restaurant.name}}</h4>
+          <p>{{restaurant.rest_desc}}</p>
+        </div>
+        <div class="card-action">
+          <a href="{%url 'rest-details' restaurant.id%}">More Details...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%endfor%}
+
+{%endblock%}
+
+<!-- <div class="col s12 m7">
+  <h2 class="header">Horizontal Card</h2>
+  <div class="card horizontal">
+    <div class="card-image">
+      <img src="{{ restaurant.rest_img.url }}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <p>I am a very simple card. I am good at containing small bits of information.</p>
+      </div>
+      <div class="card-action">
+        <a href="#">This is a link</a>
+      </div>
+    </div>
+  </div>
+</div> -->
