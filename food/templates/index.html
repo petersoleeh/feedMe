@@ -2,21 +2,33 @@
 {% block content%}
 
 {{block.super}}
-  <h1 class="text-center">List of available foods</h1>
-  {%for food_item in food%}
-  <div class="container">
-    <div class="panel panel-default">
-    <div class="panel-heading">
-        <a href="/">{{ food_item.name }}</a>
-    </div>
-    <div class="panel-body">
-      <img src="{{ food_item.food_pic.url }}" alt="{{ food_item.name }}" width="500px" class="img-responsive">
-    </div>
-    <div class="panel-footer">
-      <h4>{{food_item.name}}</h4>
-    </div>
-    </div>
+<div class="container">
+  <h1 class="header text-center">Available foods</h1>
+</div>
+{%for food_item in food%}
+<div class="container">
+  <div class="panel panel-default">
+  <div class="panel-heading">
+      <a href="{%url 'rest' food_item.id%}">{{ food_item.name }}</a>
   </div>
+  <div class="panel-body">
+    <img src="{{ food_item.food_pic.url }}" alt="{{ food_item.name }}" width="500px" class="img-responsive">
+  </div>
+  <div class="panel-footer">
+    <h4>{{food_item.name}}</h4>
+  </div>
+  </div>
+</div>
 
-  {%endfor%}
+{%endfor%}
 {%endblock%}
+<!-- <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 food-card">
+  <img src="{{ food_item.food_pic.url }}" alt="{{ food_item.name }}" class="img-responsive">
+
+  <li class="text-center">
+    <a href="/movie/{{movie.id}}">
+        {{food_item.name}}
+      </a>
+  </li> -->
+
+</div>
