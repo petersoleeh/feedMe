@@ -4,8 +4,69 @@
 <div class="container">
   {%if user.is_authenticated%}
     {%for restaurant in restaurants%}
-    <img src="{{ restaurant.rest_img.url}}" alt="{{ restaurant.name}}" class="img-responsive">
+    <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-md-6">
+      <img src="{{ restaurant.rest_img.url }}" alt="{{ restaurant.name }}" width="500px" class="img-responsive">
+    </div>
+    <div class="col-md-6">
+      <h5>Some stuff</h5>
+    </div>
+    </div>
+    <div class="panel-footer">
+      <h4>{{restaurant.name}}</h4>
+    </div>
+    </div>
+  </div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Find Us</h5>
+          <div id="map"></div>
+        </div>
+        <div class="col-md-4">
+          <h5>Contacts</h5>
+          <p><strong>Phone Number: {{restaurant.phone_number}}</strong></p>
+          <p><strong>Visit Our Site: {{restaurant.website_url}}</strong></p>
+
+        </div>
+        <div class="col-md-4">
+          <h5>Hours</h5>
+          <p><strong>Mon-Fri: 9am-10pm</strong></p>
+          <p><strong>Sat-Sun: 10am-10pm</strong></p>
+        </div>
+      </div>
+    </div>
+    <script>
+    function myMap() {
+      var myCenter = new google.maps.LatLng(-1.278183,36.769450);
+      var mapCanvas = document.getElementById("map");
+      var mapOptions = {center: myCenter, zoom: 12};
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+      var marker = new google.maps.Marker({
+        position:myCenter,
+        animation:google.maps.Animation.DROP
+      });
+      marker.setMap(map);
+    }
+    </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYhT-2wPJB1I0sCAKU1a2mUm14Z70Z41Y&callback=myMap"></script>
+
     {%endfor%}
   {%endif%}
-</div>
+
 {%endblock%}
+
+<!-- <div id="googleMap" style="height:300px;width:100%;"></div>
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYhT-2wPJB1I0sCAKU1a2mUm14Z70Z41Y&callback=myMap"></script> -->

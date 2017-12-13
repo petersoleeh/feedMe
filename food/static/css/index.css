@@ -29,6 +29,11 @@ body{
 #rest_img{
   width: 300px;
 }
+#map{
+  height: 200px;
+  width: 200px;
+  background-color: red;
+}
 
 
 #register-pic{

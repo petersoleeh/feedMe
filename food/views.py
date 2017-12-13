@@ -15,7 +15,7 @@ def restaurant(request,food_id):
         food = Food.objects.get(pk=food_id)
 
     except Food.DoesNotExist:
-        raise Http404("This Item isn't available")
+        raise Http404("This Food Item isn't available")
 
 
     print(rest)
