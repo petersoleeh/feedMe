@@ -13,6 +13,14 @@
         <div class="card-content">
           <h4>{{restaurant.name}}</h4>
           <p>{{restaurant.rest_desc}}</p>
+          <br>
+          <!-- {% if restaurant.price > 50.00 %}
+            <p>Price range $ </p>
+          {%else %}
+            <p>price range $$</p>
+          {%endif%} -->
+          <h6>Price Estimate</h6>
+          <b>{{restaurant.price}}</b>
         </div>
         <div class="card-action">
           <a href="{%url 'rest-details' restaurant.id%}">More Details...</a>
