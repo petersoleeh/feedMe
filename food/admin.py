@@ -5,7 +5,7 @@ from .models import Food,Restaurant
 class RestaurantAdmin(admin.ModelAdmin):
     fieldsets = [('Description',{'fields': ['name','rest_desc','menu']}),
                  ('Contact',{'fields':['website_url','phone_number']}),
-                 ('Food',{'fields':['food']}),
+                 ('Food',{'fields':['food','price']}),
                  ('Pictures',{'fields':['rest_img']}),]
 
 admin.site.register(Restaurant,RestaurantAdmin)
